@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Request Withdrawal</title>
+  <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      color: #333;
+      min-height: 100vh;
+    }
+
+    /* ========== Common Container ========= */
+    .container,
+    .history-container {
+      max-width: 900px;
+      margin: 60px auto;
+      background-color: white;
+      padding: 30px 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    /* ========== Page Headings ========= */
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    /* ========== Form Styling ========= */
+    form {
+      margin-top: 20px;
+      text-align: left;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    form label {
+      display: block;
+      margin: 15px 0 5px;
+      font-weight: bold;
+    }
+
+    form input[type="number"],
+    form textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 15px;
+      resize: vertical;
+    }
+
+    form input[type="radio"] {
+      width: auto;
+      margin-right: 8px;
+      vertical-align: middle;
+      cursor: pointer;
+    }
+
+    form button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    form button:hover {
+      background-color: #218838;
+    }
+
+    /* ===== Navigation Bar ===== */
+    .navbar {
+      background-color: #007bff;
+      padding: 15px 0;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+      padding: 8px 12px;
+      border-radius: 5px;
+      transition: background 0.3s ease;
+    }
+
+    .navbar ul li a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    /* ===== Footer Styling ===== */
+    .site-footer {
+      background-color: #007bff;
+      color: white;
+      text-align: center;
+      padding: 15px 10px;
+      margin-top: 40px;
+      font-size: 14px;
+      border-top: 2px solid #0056b3;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .navbar ul {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .navbar ul li a {
+        font-size: 14px;
+        padding: 10px 12px;
+      }
+
+      .container,
+      .history-container {
+        padding: 20px;
+        margin: 30px 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <ul>
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="commission_history.html">Commission History</a></li>
+      <li><a href="request_withdrawal.html">Request Withdrawal</a></li>
+      <li><a href="withdrawal_history.html">Withdrawal History</a></li>
+      <li><a href="index.html">Logout</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <h1>Withdrawal Request</h1>
+    <form onsubmit="submitWithdrawal(event)">
+      <label for="amount">Amount (in ₹)</label>
+      <input type="number" id="amount" name="amount" value="2500" readonly />
+
+      <label>Payment Method</label>
+      <div>
+        <input type="radio" id="upi" name="method" value="UPI" required />
+        <label for="upi">UPI</label><br>
+        <input type="radio" id="bank" name="method" value="Bank Transfer" />
+        <label for="bank">Bank Transfer</label><br>
+        <input type="radio" id="paypal" name="method" value="PayPal" />
+        <label for="paypal">PayPal</label>
+      </div>
+
+      <label for="details">Payment Details</label>
+      <textarea id="details" name="details" rows="3" placeholder="e.g., UPI ID, Bank Acc No., or PayPal Email" required></textarea>
+
+      <button type="submit">Request Withdrawal</button>
+    </form>
+  </div>
+
+  <script>
+    function submitWithdrawal(event) {
+      event.preventDefault();
+      alert("Withdrawal request submitted!");
+    }
+  </script>
+
+  <center>
+    <footer class="site-footer">
+      <p>© 2025 Affiliate Program. All rights reserved.</p>
+    </footer>
+  </center>
+</body>
+</html>
